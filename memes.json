@@ -4,5 +4,149 @@
         "id": "bruh",
         "audio": "https://www.myinstants.com/media/sounds/movie_1.mp3",
         "profane": false
+    },
+    {
+        "text": "nani",
+        "id": "naniAudio",
+        "audio":"https://sound.peal.io/ps/audios/000/014/691/original/youtube_14691.mp3?1527734126",
+        "profane": false
+    },
+    {
+        "text": "hell naw",
+        "id": "hellnawAudio",
+        "audio": "https://sound.peal.io/ps/audios/000/000/278/original/hell_naw?1469744142",
+        "profane": false
+    },
+    {
+        "text": "my name is jeff",
+        "id": "myNameIsJeffAudio",
+        "audio": "https://sound.peal.io/ps/audios/000/000/292/original/my_name_is_jeff?1469744419",
+        "profane": false
+    },
+    {
+        "text": "Do It",
+        "id": "doItAudio",
+        "audio": " https://sound.peal.io/ps/audios/000/000/370/original/do_it.aiff.m4a?1469744435",
+        "profane": false
+    }, 
+    {
+        "text": "Nope",
+        "id": "nopeAudio",
+        "audio": "https://www.myinstants.com/media/sounds/engineer_no01.mp3",
+        "profane": false
+    }, 
+    {
+        "text": "Look at this dude",
+        "id": "ohNoAudio",
+        "audio": "https://soundboardguys.com/soundFiles/oh-no-no-no-no-laugh.mp3",
+        "profane": false
+    },
+    {
+        "text": "I like ya cut G",
+        "id": "iLikeYaCutGAudio",
+        "audio": "https://www.myinstants.com/media/sounds/i-like-ya-cut-g-1.mp3",
+        "profane": false
+    }, 
+    {
+        "text": "Wide Putin",
+        "id": "widePutinAudio",
+        "audio": "https://www.myinstants.com/media/sounds/my-movie-6_0RlWMvM.mp3",
+        "profane": false
+    }, 
+    {
+        "text": "Damaged Coda",
+        "id": "damagedCode",
+        "audio": "https://www.myinstants.com/media/sounds/damaged_coda.mp3",
+        "profane": false
+    },
+    {
+        "text": "Oh no no no no",
+        "id": "OhNox4Laugh",
+        "audio": "https://soundboardguys.com/soundFiles/oh-no-no-no-no-laugh.mp3",
+        "profane": false
+    },
+    {
+        "text": "Coffin Dance",
+        "id": "coffinDance",
+        "audio": "https://www.myinstants.com/media/sounds/y2mate-mp3cut_sRzY6rh.mp3",
+        "profane": false
+    },
+    {
+        "text": "Anime Wow",
+        "id": "animeWow",
+        "audio": "https://www.myinstants.com/media/sounds/anime-wow-sound-effect_Q6Q4ech.mp3",
+        "profane": false
+    },
+    {
+        "text": "Vine Boom",
+        "id": "vineBoom",
+        "audio": "https://www.myinstants.com/media/sounds/vine-boom.mp3",
+        "profane": false
+    },
+    {
+        "text": "Windows XP Error",
+        "id": "windowsXPError",
+        "audio": "https://www.myinstants.com/media/sounds/erro.mp3",
+        "profane": false
+    },
+    {
+        "text": "Enemy Spotted",
+        "id": "enemy spotted",
+        "audio": "https://www.myinstants.com/media/sounds/counter-strike-jingle-cs-radio-enemy-spotted.mp3",
+        "profane": false
+    },
+    {
+        "text": "OOF",
+        "id": "oof",
+        "audio": "https://www.myinstants.com/media/sounds/roblox-death-sound-effect.mp3",
+        "profane": false
+    },
+    {
+        "text": "i am groot",
+        "id": "iAmGroot",
+        "audio": "https://www.myinstants.com/media/sounds/iamgroot.mp3",
+        "profane": false
+    },
+    {
+        "text": "FBI Open Up",
+        "id": "fbiOpenUp",
+        "audio": "https://www.myinstants.com/media/sounds/fbi-open-up-explosion.mp3",
+        "profane": false
+    },
+    {
+        "text": "Sad Violin",
+        "id": "sadViolin",
+        "audio": "https://www.myinstants.com/media/sounds/export_4.mp3",
+        "profane": false
+    },
+    {
+        "text": "Drumroll",
+        "id": "drumroll",
+        "audio": "https://www.myinstants.com/media/sounds/snare-drumroll.mp3",
+        "profane": false
+    },
+    {
+        "text": "Deez Nuts",
+        "id": "deezNuts",
+        "audio": "https://www.myinstants.com/media/sounds/sequence-01_29.mp3",
+        "profane": true
+    },
+    {
+        "text": "Gottem",
+        "id": "gottem",
+        "audio": "https://www.myinstants.com/media/sounds/gotem-sound-effect.mp3",
+        "profane": false
+    },
+    {
+        "text": "Directed By Robbert B",
+        "id": "directedByRobbertB",
+        "audio": "https://www.myinstants.com/media/sounds/directed-by-robert-b_voI2Z4T.mp3",
+        "profane": false
+    },
+    {
+        "text": "Ivean Polkka",
+        "id": "iveanPolkka",
+        "audio": "https://www.myinstants.com/media/sounds/cat-vibing-to-ievan-polkka.mp3",
+        "profane": false
     }
 ]
