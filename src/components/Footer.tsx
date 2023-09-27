@@ -1,8 +1,20 @@
 export default function Footer() {
+    const handleClick = () => {
+        document.querySelectorAll("audio").forEach((el) => {
+            el.pause();
+            el.currentTime = 0;
+        });
+    };
     return (
         <>
             <footer>
-                <button type="button" className="stop-sounds">STOP ALL SOUNDS</button>
+                <button
+                    type="button"
+                    className="stop-sounds"
+                    onClick={handleClick}
+                >
+                    STOP ALL SOUNDS
+                </button>
             </footer>
         </>
     );

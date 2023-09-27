@@ -39,8 +39,6 @@ h1 {
 button {
   transition: translate 150ms;
 }
-button:focus-visible,
-button:focus,
 button:hover {
   outline: none;
   translate: 0 -5px;

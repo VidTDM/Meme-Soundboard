@@ -5,15 +5,19 @@ interface SoundButtonProps {
     text: string;
     audioText: string;
     img?: string;
-
 }
 
-export default function SoundButton({ id, text, audioText, img }: SoundButtonProps) {
+export default function SoundButton({
+    id,
+    text,
+    audioText,
+    img,
+}: SoundButtonProps) {
     const audioRef = useRef<HTMLAudioElement | null>(null);
     function playAudio() {
         if (!audioRef.current) return;
         audioRef.current.play();
-    };
+    }
     return (
         <>
             <audio src={audioText} ref={audioRef}></audio>
