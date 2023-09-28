@@ -2,7 +2,8 @@ const sounds = [
     {
         "text": "Bruh",
         "id": "bruh",
-        "audio": "https://www.myinstants.com/media/sounds/movie_1.mp3"
+        "audio": "https://www.myinstants.com/media/sounds/movie_1.mp3",
+        "img": ""
     },
     {
         "text": "nani",
