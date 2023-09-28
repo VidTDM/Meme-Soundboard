@@ -6,7 +6,7 @@ const sounds = [
         "img": ""
     },
     {
-        "text": "nani",
+        "text": "NANI",
         "id": "nani",
         "audio":"https://sound.peal.io/ps/audios/000/014/691/original/youtube_14691.mp3?1527734126"
     },

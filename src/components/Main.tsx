@@ -1,10 +1,11 @@
 import { useState, useRef, useMemo } from "react";
-import SoundButton from "./SoundButton";
+import SoundButton from "./buttons/SoundButton";
+import AddNewSoundButton from './buttons/AddNewSoundButton';
 import sounds from "../data/sounds";
 
 export default function Main() {
     const [query, setQuery] = useState<string>('');
-    const inputRef = useRef<any>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const filteredSounds = useMemo(() => {
         return sounds.filter(sound => {
@@ -34,6 +35,8 @@ export default function Main() {
                         />
                     );
                 })}
+                {}
+                <AddNewSoundButton />
             </div>
         </>
     );

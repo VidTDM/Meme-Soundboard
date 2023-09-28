@@ -14,6 +14,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -38,10 +44,36 @@ h1 {
 
 button {
   transition: translate 150ms;
+  border-radius: 0.25rem;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  cursor: pointer;
+}
+button.primary,
+::file-selector-button {
+  border-radius: 0.25rem;
+  border: 1px solid var(--secondary);
+  background-color: var(--primary);
+  color-scheme: dark;
+}
+button.secondary {
+  border: 1px solid var(--primary);
+  background-color: var(--secondary);
+}
+button.outline {
+  background-color: transparent;
+  border: 3px solid var(--primary);
 }
 button:hover {
   outline: none;
   translate: 0 -5px;
+}
+button:focus {
+  outline: none;
+}
+
+::file-selector-button {
+  padding: 0.3em 0.6em;
 }
 
 @media (prefers-color-scheme: light) {

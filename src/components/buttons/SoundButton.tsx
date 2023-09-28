@@ -21,7 +21,7 @@ export default function SoundButton({
     return (
         <>
             <audio src={audioText} ref={audioRef}></audio>
-            <button id={id} className="sound" type="button" onClick={playAudio}>
+            <button id={id} className="sound secondary" type="button" onClick={playAudio}>
                 {img ? <img src={img} alt={img} /> : ""}
                 {text}
             </button>

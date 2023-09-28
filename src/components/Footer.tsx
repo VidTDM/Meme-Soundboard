@@ -10,7 +10,7 @@ export default function Footer() {
             <footer>
                 <button
                     type="button"
-                    className="stop-sounds"
+                    className="stop-sounds primary"
                     onClick={handleClick}
                 >
                     STOP ALL SOUNDS
