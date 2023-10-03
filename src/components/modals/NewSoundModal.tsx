@@ -1,21 +1,59 @@
-import { useState } from "react";
+import { Dispatch, MutableRefObject, SetStateAction, useRef, useState } from "react";
+import { Sound } from "../Main";
 
 interface NewSoundModalProps {
-    modalRef: any;
+    modalRef: MutableRefObject<HTMLDialogElement>;
+    db: {
+        collection: Function;
+    };
+    customSounds: Array<Sound>;
+    setCustomSounds: Dispatch<SetStateAction<Object[]>>;
 }
 
-export default function NewSoundModal({ modalRef }: NewSoundModalProps) {
-    const [inputName, setInputName] = useState<string>("");
-    const [inputFile, setInputFile] = useState<string>("");
+export default function NewSoundModal({
+    modalRef,
+    db,
+    customSounds,
+    setCustomSounds,
+}: NewSoundModalProps) {
+    const [nameInput, setNameInput] = useState<string>("");
+    const [fileInput, setFileInput] = useState<Object>(undefined);
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const closeModal = () => {
+    const closeModal = (): void => {
         modalRef.current.close();
-        setInputName("");
-        setInputFile("");
+        setNameInput("");
+        setFileInput("");
+        fileInputRef.current.value = "";
     };
 
-    const createSound = () => {
-        console.warn("Doesn't work yet");
+    const createSound = (): void => {
+        if (!fileInput[0] || nameInput == "" || fileInput == undefined)
+            return closeModal();
+
+        const id = nameInput
+            .replace(/([a-z])([A-Z])/g, "$1-$2")
+            .replace(/[\s_]+/g, "-")
+            .toLowerCase();
+        const reader = new FileReader();
+        reader.readAsDataURL(fileInput[0]);
+        reader.onload = () => {
+            db.collection("sounds").add({
+                id,
+                text: nameInput,
+                soundData: reader.result,
+            });
+            setCustomSounds([
+                ...customSounds,
+                {
+                    id,
+                    text: nameInput,
+                    soundData: reader.result,
+                },
+            ]);
+        };
+        reader.onerror = (err) => console.error("Error: ", err);
+
         closeModal();
     };
     return (
@@ -34,8 +72,8 @@ export default function NewSoundModal({ modalRef }: NewSoundModalProps) {
                             type="text"
                             id="name"
                             placeholder="Bruh"
-                            value={inputName}
-                            onChange={(e) => setInputName(e.target.value)}
+                            value={nameInput}
+                            onChange={(e) => setNameInput(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
@@ -44,8 +82,8 @@ export default function NewSoundModal({ modalRef }: NewSoundModalProps) {
                             type="file"
                             id="file"
                             accept=".mp3"
-                            value={inputFile}
-                            onChange={(e) => setInputFile(e.target.value)}
+                            onChange={(e) => setFileInput(e.target.files)}
+                            ref={fileInputRef}
                         />
                     </div>
                 </form>
