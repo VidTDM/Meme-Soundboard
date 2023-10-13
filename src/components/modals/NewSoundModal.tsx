@@ -60,7 +60,7 @@ export default function NewSoundModal({
         <dialog ref={modalRef}>
             <header>
                 <label>Create New Sound</label>
-                <button type="button" onClick={closeModal}>
+                <button type="button" onClick={closeModal} className="transparent">
                     <span>&times;</span>
                 </button>
             </header>

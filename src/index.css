@@ -64,6 +64,10 @@ button.outline {
   background-color: transparent;
   border: 3px solid var(--primary);
 }
+button.transparent {
+  background-color: transparent;
+  border: none;
+}
 button:hover {
   outline: none;
   translate: 0 -5px;

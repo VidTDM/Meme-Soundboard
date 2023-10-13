@@ -63,6 +63,11 @@ input {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    // .transparent {
+    //     padding: 0;
+    //     margin: 0 0 0 0.5rem;
+    //     font-size: x-large;
+    // }
 }
 
 footer {
@@ -92,8 +97,6 @@ dialog {
             font-size: 1.5em;
             padding: 0 0.5rem;
             float: right;
-            background-color: transparent;
-            border: none;
             &:hover {
                 translate: 0 0;
             }
