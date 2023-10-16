@@ -1,4 +1,3 @@
-// @ts-ignore
 import Localbase from "localbase";
 import "./App.css";
 import Main from "./components/Main";
