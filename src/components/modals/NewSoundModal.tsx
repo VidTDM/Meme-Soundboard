@@ -3,16 +3,12 @@ import { Sound } from "../Main";
 
 interface NewSoundModalProps {
     modalRef: MutableRefObject<HTMLDialogElement>;
-    db: {
-        collection: Function;
-    };
     customSounds: Array<Sound>;
-    setCustomSounds: Dispatch<SetStateAction<Object[]>>;
+    setCustomSounds: Dispatch<SetStateAction<Array<Sound>>>;
 }
 
 export default function NewSoundModal({
     modalRef,
-    db,
     customSounds,
     setCustomSounds,
 }: NewSoundModalProps) {
@@ -38,11 +34,6 @@ export default function NewSoundModal({
         const reader = new FileReader();
         reader.readAsDataURL(fileInput[0]);
         reader.onload = () => {
-            db.collection("sounds").add({
-                id,
-                text: nameInput,
-                soundData: reader.result,
-            });
             setCustomSounds([
                 ...customSounds,
                 {

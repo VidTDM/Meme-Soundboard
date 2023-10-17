@@ -3,15 +3,11 @@ import NewSoundModal from "../modals/NewSoundModal";
 import { Sound } from "../Main";
 
 interface AddNewSoundButtonProps {
-    db: {
-        collection: Function;
-    };
     customSounds: Array<Sound>;
     setCustomSounds: Dispatch<SetStateAction<Object[]>>;
 }
 
 export default function AddNewSoundButton({
-    db,
     customSounds,
     setCustomSounds,
 }: AddNewSoundButtonProps) {
@@ -33,7 +29,6 @@ export default function AddNewSoundButton({
             </button>
             <NewSoundModal
                 modalRef={modalRef}
-                db={db}
                 customSounds={customSounds}
                 setCustomSounds={setCustomSounds}
             />

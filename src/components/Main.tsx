@@ -4,19 +4,15 @@ import SoundButton from "./buttons/SoundButton";
 import AddNewSoundButton from "./buttons/AddNewSoundButton";
 import sounds from "../data/sounds";
 
-interface MainProps {
-    db: {
-        collection: Function;
-    };
-}
+interface MainProps {}
 
 export interface Sound {
     id: string;
     text: string;
-    soundData: string;
+    soundData: any;
 }
 
-export default function Main({ db }: MainProps) {
+export default function Main({}: MainProps) {
     const [customSounds, setCustomSounds] = useState<Array<Sound>>([]);
     const [query, setQuery] = useState<string>("");
     const inputRef = useRef<HTMLInputElement>(null);
@@ -25,11 +21,7 @@ export default function Main({ db }: MainProps) {
             return sound.text.toLowerCase().includes(query.toLowerCase());
         });
     }, [query]);
-    useDidMount(() => {
-        db.collection("sounds").get().then((sounds: Array<Sound>) => {
-            setCustomSounds(sounds);
-        });
-    });
+    useDidMount(() => {});
     return (
         <>
             <div className="search-box">
@@ -63,7 +55,6 @@ export default function Main({ db }: MainProps) {
                     );
                 })}
                 <AddNewSoundButton
-                    db={db}
                     customSounds={customSounds}
                     setCustomSounds={setCustomSounds}
                 />
