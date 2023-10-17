@@ -1,17 +1,11 @@
-import { Dispatch, MutableRefObject, SetStateAction, useRef, useState } from "react";
-import { Sound } from "../Main";
+import { MutableRefObject, useRef, useState } from "react";
+import { db } from "../../db";
 
-interface NewSoundModalProps {
+interface Props {
     modalRef: MutableRefObject<HTMLDialogElement>;
-    customSounds: Array<Sound>;
-    setCustomSounds: Dispatch<SetStateAction<Array<Sound>>>;
 }
 
-export default function NewSoundModal({
-    modalRef,
-    customSounds,
-    setCustomSounds,
-}: NewSoundModalProps) {
+export default function NewSoundModal({ modalRef }: Props) {
     const [nameInput, setNameInput] = useState<string>("");
     const [fileInput, setFileInput] = useState<Object>(undefined);
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -33,15 +27,12 @@ export default function NewSoundModal({
             .toLowerCase();
         const reader = new FileReader();
         reader.readAsDataURL(fileInput[0]);
-        reader.onload = () => {
-            setCustomSounds([
-                ...customSounds,
-                {
-                    id,
-                    text: nameInput,
-                    soundData: reader.result,
-                },
-            ]);
+        reader.onload = async () => {
+            db.sounds.add({
+                id,
+                text: nameInput,
+                soundData: reader.result,
+            });
         };
         reader.onerror = (err) => console.error("Error: ", err);
 
@@ -51,7 +42,11 @@ export default function NewSoundModal({
         <dialog ref={modalRef}>
             <header>
                 <label>Create New Sound</label>
-                <button type="button" onClick={closeModal} className="transparent">
+                <button
+                    type="button"
+                    onClick={closeModal}
+                    className="transparent"
+                >
                     <span>&times;</span>
                 </button>
             </header>

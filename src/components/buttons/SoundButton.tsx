@@ -1,18 +1,13 @@
 import { useRef } from "react";
 
-interface SoundButtonProps {
+interface Props {
     id: string;
     text: string;
     audioText: string;
     img?: string;
 }
 
-export default function SoundButton({
-    id,
-    text,
-    audioText,
-    img,
-}: SoundButtonProps) {
+export default function SoundButton({ id, text, audioText, img }: Props) {
     const audioRef = useRef<HTMLAudioElement | null>(null);
     function playAudio() {
         if (!audioRef.current) return;
@@ -21,7 +16,12 @@ export default function SoundButton({
     return (
         <>
             <audio src={audioText} ref={audioRef}></audio>
-            <button id={id} className="sound secondary" type="button" onClick={playAudio}>
+            <button
+                id={id}
+                className="sound secondary"
+                type="button"
+                onClick={playAudio}
+            >
                 {img ? <img src={img} alt={img} /> : ""}
                 {text}
             </button>

@@ -1,16 +1,7 @@
-import { Dispatch, SetStateAction, useRef } from "react";
+import { useRef } from "react";
 import NewSoundModal from "../modals/NewSoundModal";
-import { Sound } from "../Main";
 
-interface AddNewSoundButtonProps {
-    customSounds: Array<Sound>;
-    setCustomSounds: Dispatch<SetStateAction<Object[]>>;
-}
-
-export default function AddNewSoundButton({
-    customSounds,
-    setCustomSounds,
-}: AddNewSoundButtonProps) {
+export default function AddNewSoundButton({}) {
     const buttonRef = useRef<HTMLButtonElement>(null);
     const modalRef = useRef<HTMLDialogElement>(null);
 
@@ -27,11 +18,7 @@ export default function AddNewSoundButton({
             >
                 Add New Sound <b>+</b>
             </button>
-            <NewSoundModal
-                modalRef={modalRef}
-                customSounds={customSounds}
-                setCustomSounds={setCustomSounds}
-            />
+            <NewSoundModal modalRef={modalRef} />
         </>
     );
 }

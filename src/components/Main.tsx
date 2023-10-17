@@ -1,10 +1,9 @@
 import { useState, useRef, useMemo } from "react";
-import useDidMount from '../utils/useDidMount';
 import SoundButton from "./buttons/SoundButton";
 import AddNewSoundButton from "./buttons/AddNewSoundButton";
 import sounds from "../data/sounds";
-
-interface MainProps {}
+import { db } from "../db";
+import { useLiveQuery } from "dexie-react-hooks";
 
 export interface Sound {
     id: string;
@@ -12,8 +11,8 @@ export interface Sound {
     soundData: any;
 }
 
-export default function Main({}: MainProps) {
-    const [customSounds, setCustomSounds] = useState<Array<Sound>>([]);
+export default function Main() {
+    const customSounds = useLiveQuery(() => db.sounds.toArray());
     const [query, setQuery] = useState<string>("");
     const inputRef = useRef<HTMLInputElement>(null);
     const filteredSounds = useMemo(() => {
@@ -21,7 +20,6 @@ export default function Main({}: MainProps) {
             return sound.text.toLowerCase().includes(query.toLowerCase());
         });
     }, [query]);
-    useDidMount(() => {});
     return (
         <>
             <div className="search-box">
@@ -45,19 +43,17 @@ export default function Main({}: MainProps) {
                         />
                     );
                 })}
-                {customSounds.map((customSound) => {
+                {customSounds?.map((customSound, i) => {
                     return (
                         <SoundButton
+                            key={i}
                             id={customSound.id}
                             text={customSound.text}
                             audioText={customSound.soundData}
                         />
                     );
                 })}
-                <AddNewSoundButton
-                    customSounds={customSounds}
-                    setCustomSounds={setCustomSounds}
-                />
+                <AddNewSoundButton />
             </div>
         </>
     );

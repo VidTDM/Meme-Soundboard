@@ -6,16 +6,14 @@ export default function Footer() {
         });
     };
     return (
-        <>
-            <footer>
-                <button
-                    type="button"
-                    className="stop-sounds primary"
-                    onClick={handleClick}
-                >
-                    STOP ALL SOUNDS
-                </button>
-            </footer>
-        </>
+        <footer>
+            <button
+                type="button"
+                className="stop-sounds primary"
+                onClick={handleClick}
+            >
+                STOP ALL SOUNDS
+            </button>
+        </footer>
     );
 }
