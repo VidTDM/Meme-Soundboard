@@ -1,5 +1,6 @@
 import { useState, useRef, useMemo } from "react";
 import SoundButton from "./buttons/SoundButton";
+import CustomSoundButton from "./buttons/CustomSoundButton";
 import AddNewSoundButton from "./buttons/AddNewSoundButton";
 import sounds from "../data/sounds";
 import { db } from "../db";
@@ -20,6 +21,9 @@ export default function Main() {
             return sound.text.toLowerCase().includes(query.toLowerCase());
         });
     }, [query]);
+    function deleteAllSounds() {
+        db.sounds.clear();
+    }
     return (
         <>
             <div className="search-box">
@@ -30,6 +34,13 @@ export default function Main() {
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="🔍 Type to search..."
                 />
+                <button
+                    type="button"
+                    className="primary"
+                    onClick={deleteAllSounds}
+                >
+                    Delete all sounds
+                </button>
             </div>
             <div className="buttonList">
                 {filteredSounds.map((sound, i) => {
@@ -45,11 +56,11 @@ export default function Main() {
                 })}
                 {customSounds?.map((customSound, i) => {
                     return (
-                        <SoundButton
+                        <CustomSoundButton
                             key={i}
                             id={customSound.id}
                             text={customSound.text}
-                            audioText={customSound.soundData}
+                            soundData={customSound.soundData}
                         />
                     );
                 })}

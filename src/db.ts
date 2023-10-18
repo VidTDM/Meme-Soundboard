@@ -6,7 +6,7 @@ interface CustomSound {
     soundData: any;
 }
 
-export class MySubClassDexie extends Dexie {
+class SoundsDBDexie extends Dexie {
     sounds!: Table<CustomSound>;
     constructor() {
         super("SoundsDB");
@@ -16,4 +16,4 @@ export class MySubClassDexie extends Dexie {
     }
 }
 
-export const db = new MySubClassDexie();
+export const db = new SoundsDBDexie();
